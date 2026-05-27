@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Book an appointment online with Dr. Arun D. at Arun Ortho Speciality Clinic, Dharmapuri. Expert orthopaedic consultation for bone, joint and spine conditions."/>
+  <title>Book an Appointment | Arun Ortho Speciality Clinic</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #F0F6FF;
+      color: #1e3a5f;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    /* ── MINI NAVBAR ── */
+    .bk-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(11,79,150,0.10);
+      box-shadow: 0 2px 16px rgba(11,79,150,0.07);
+    }
+
+    .bk-nav-inner {
+      max-width: 1100px;
+      margin-inline: auto;
+      padding: 0.85rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .bk-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      text-decoration: none;
+    }
+
+    .bk-logo-box {
+      width: 42px;
+      height: 42px;
+      background: linear-gradient(135deg, #0B4F96, #2563EB);
+      border-radius: 11px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      box-shadow: 0 4px 14px rgba(11,79,150,0.30);
+    }
+
+    .bk-logo-name {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1rem;
+      font-weight: 800;
+      color: #0B4F96;
+    }
+
+    .bk-logo-sub {
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: #64748b;
+    }
+
+    .bk-nav-right {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .bk-back {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #0B4F96;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: opacity 0.2s;
+    }
+
+    .bk-back:hover { opacity: 0.7; }
+
+    .bk-call {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: #FEF2F2;
+      color: #ef4444;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0.45rem 1rem;
+      border-radius: 999px;
+      text-decoration: none;
+      border: 1px solid #fecaca;
+      transition: all 0.2s;
+    }
+
+    .bk-call:hover { background: #ef4444; color: #fff; border-color: #ef4444; }
+
+    /* ── PAGE LAYOUT ── */
+    .bk-page {
+      max-width: 1100px;
+      margin-inline: auto;
+      padding: 2.5rem 1.5rem 4rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    @media (min-width: 900px) {
+      .bk-page { grid-template-columns: 340px 1fr; gap: 2.5rem; }
+    }
+
+    /* ── LEFT SIDEBAR ── */
+    .bk-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    /* Page title block */
+    .bk-title-block {
+      background: linear-gradient(145deg, #0B3566, #0B4F96 60%, #1565c0);
+      border-radius: 20px;
+      padding: 2rem 1.75rem;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bk-title-block::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, rgba(56,189,248,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .bk-page-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: #93c5fd;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.8rem;
+      border-radius: 999px;
+      margin-bottom: 1rem;
+    }
+
+    .bk-page-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.65rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+
+    .bk-page-title span {
+      background: linear-gradient(90deg, #38BDF8, #7dd3fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .bk-page-desc {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.70);
+      line-height: 1.65;
+    }
+
+    /* Doctor card */
+    .bk-doctor-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 1.5rem;
+      border: 1px solid rgba(11,79,150,0.10);
+      box-shadow: 0 4px 20px rgba(11,79,150,0.07);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .bk-doctor-avatar {
+      width: 58px;
+      height: 58px;
+      min-width: 58px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #EFF6FF, #DBEAFE);
+      border: 3px solid #2563EB;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+    }
+
+    .bk-doctor-name {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: #0B4F96;
+    }
+
+    .bk-doctor-qual {
+      font-size: 0.72rem;
+      color: #64748b;
+      margin-top: 0.15rem;
+    }
+
+    .bk-doctor-avail {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      margin-top: 0.4rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #16a34a;
+    }
+
+    .bk-doctor-avail::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #16a34a;
+      display: block;
+      animation: pulse-dot 1.5s infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(0.85); }
+    }
+
+    /* Info items */
+    .bk-info-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 1.35rem 1.5rem;
+      border: 1px solid rgba(11,79,150,0.10);
+      box-shadow: 0 4px 20px rgba(11,79,150,0.07);
+    }
+
+    .bk-info-card-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: #0B4F96;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .bk-info-rows {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .bk-info-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .bk-info-ico {
+      width: 32px;
+      height: 32px;
+      min-width: 32px;
+      background: #EFF6FF;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #2563EB;
+    }
+
+    .bk-info-text { padding-top: 0.1rem; }
+
+    .bk-info-lbl {
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #94a3b8;
+    }
+
+    .bk-info-val {
+      font-size: 0.83rem;
+      font-weight: 500;
+      color: #1e3a5f;
+      margin-top: 0.1rem;
+    }
+
+    .bk-info-val a {
+      color: #2563EB;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .bk-info-val a:hover { text-decoration: underline; }
+
+    /* Timings */
+    .bk-timing-rows {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .bk-timing-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.42rem 0;
+      font-size: 0.82rem;
+      border-bottom: 1px solid #f1f5f9;
+      color: #475569;
+    }
+
+    .bk-timing-row:last-child { border-bottom: none; }
+    .bk-timing-row span:last-child { font-weight: 600; color: #0B4F96; }
+    .bk-timing-emerg { color: #ef4444 !important; font-weight: 700 !important; }
+
+    /* ── MAIN FORM CARD ── */
+    .bk-form-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      border: 1px solid rgba(11,79,150,0.09);
+      box-shadow: 0 8px 48px rgba(11,79,150,0.10), 0 2px 8px rgba(0,0,0,0.04);
+    }
+
+    @media (max-width: 640px) {
+      .bk-form-card { padding: 1.5rem 1.25rem; }
+    }
+
+    .bk-form-head {
+      margin-bottom: 2rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    .bk-form-head h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: #0B4F96;
+      letter-spacing: -0.01em;
+    }
+
+    .bk-form-head p {
+      font-size: 0.87rem;
+      color: #64748b;
+      margin-top: 0.3rem;
+    }
+
+    /* Section dividers inside form */
+    .bk-section-label {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #2563EB;
+      margin: 1.5rem 0 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .bk-section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, #DBEAFE, transparent);
+    }
+
+    /* Form grid */
+    .bk-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.1rem;
+    }
+
+    @media (max-width: 600px) {
+      .bk-grid { grid-template-columns: 1fr; }
+    }
+
+    .bk-field { display: flex; flex-direction: column; gap: 0.4rem; }
+    .bk-field.full { grid-column: 1 / -1; }
+
+    .bk-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #1e3a5f;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .bk-label svg { color: #2563EB; flex-shrink: 0; }
+    .req { color: #ef4444; margin-left: 1px; }
+
+    .bk-input,
+    .bk-select,
+    .bk-textarea {
+      width: 100%;
+      height: 46px;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 11px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.88rem;
+      color: #1e3a5f;
+      background: #FAFBFF;
+      padding: 0 1rem;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+      appearance: none;
+    }
+
+    .bk-input::placeholder,
+    .bk-textarea::placeholder { color: #b0bec5; }
+
+    .bk-input:focus,
+    .bk-select:focus,
+    .bk-textarea:focus {
+      border-color: #2563EB;
+      box-shadow: 0 0 0 3.5px rgba(37,99,235,0.12);
+      background: #fff;
+    }
+
+    .bk-select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 2.5rem;
+    }
+
+    .bk-textarea {
+      height: auto;
+      padding: 0.8rem 1rem;
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .bk-error {
+      font-size: 0.71rem;
+      color: #ef4444;
+      font-weight: 500;
+      min-height: 1rem;
+    }
+
+    /* Radio group (appointment type) */
+    .bk-radio-group {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 0.65rem;
+    }
+
+    .bk-radio-label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.65rem 0.9rem;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.18s;
+      font-size: 0.83rem;
+      font-weight: 500;
+      color: #475569;
+      background: #FAFBFF;
+    }
+
+    .bk-radio-label:hover {
+      border-color: #2563EB;
+      background: #EFF6FF;
+    }
+
+    .bk-radio-label input[type="radio"] {
+      accent-color: #2563EB;
+      width: 15px;
+      height: 15px;
+    }
+
+    .bk-radio-label:has(input:checked) {
+      border-color: #2563EB;
+      background: #EFF6FF;
+      color: #1e3a5f;
+      font-weight: 600;
+    }
+
+    /* Submit */
+    .bk-submit-row {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .bk-submit {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      width: 100%;
+      padding: 1rem 2rem;
+      background: linear-gradient(135deg, #0B4F96, #2563EB);
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      box-shadow: 0 6px 24px rgba(11,79,150,0.32);
+      transition: all 0.25s ease;
+      letter-spacing: 0.01em;
+    }
+
+    .bk-submit:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 36px rgba(11,79,150,0.42);
+      filter: brightness(1.07);
+    }
+
+    .bk-submit:active { transform: translateY(0); }
+
+    .bk-privacy {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      font-size: 0.72rem;
+      color: #94a3b8;
+      text-align: center;
+    }
+
+    /* Success state */
+    .bk-success {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 3rem 1.5rem;
+      gap: 1rem;
+    }
+
+    .bk-success-icon {
+      font-size: 3.5rem;
+      animation: pop-in 0.5s cubic-bezier(0.34,1.56,0.64,1);
+    }
+
+    @keyframes pop-in {
+      0% { transform: scale(0); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .bk-success h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #0B4F96;
+    }
+
+    .bk-success p {
+      font-size: 0.9rem;
+      color: #64748b;
+      max-width: 380px;
+    }
+
+    .bk-success-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: linear-gradient(135deg, #0B4F96, #2563EB);
+      color: #fff;
+      font-size: 0.9rem;
+      font-weight: 700;
+      padding: 0.75rem 2rem;
+      border-radius: 999px;
+      text-decoration: none;
+      box-shadow: 0 4px 18px rgba(11,79,150,0.30);
+      transition: all 0.22s;
+      margin-top: 0.5rem;
+    }
+
+    .bk-success-back:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(11,79,150,0.40);
+    }
+
+    /* ── FOOTER ── */
+    .bk-footer {
+      text-align: center;
+      padding: 1.75rem 1.5rem;
+      font-size: 0.8rem;
+      color: #94a3b8;
+      border-top: 1px solid rgba(11,79,150,0.08);
+      max-width: 1100px;
+      margin-inline: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .bk-footer a {
+      color: #2563EB;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .bk-footer a:hover { opacity: 0.75; }
+  </style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar" id="topBar">
+  <div class="top-bar-inner">
+    <div class="top-bar-left">
+      <a href="tel:+919566595665" class="top-bar-phone">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 0112 18.85 19.5 19.5 0 015.15 12 19.79 19.79 0 013.07 4.18 2 2 0 015 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.91 9.94a16 16 0 006.86 6.86l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        +91 95665 95665
+      </a>
+    </div>
+    <div class="top-bar-center">
+      <span class="top-bar-clinic">Arun Ortho Speciality Clinic</span>
+      <span class="top-bar-sep">|</span>
+      <a href="index.html#contact" class="top-bar-contact">Contact Us</a>
+    </div>
+    <div class="top-bar-right">
+      <a href="book-appointment.html" class="top-bar-appt">
+        Request an Appointment
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN NAVBAR -->
+<header class="site-header" id="header">
+  <div class="site-nav-inner">
+    <a href="index.html" class="site-logo" aria-label="Arun Ortho Speciality Clinic - Home">
+      <div class="site-logo-box" aria-hidden="true">
+        <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="18" cy="18" r="7" fill="white" opacity="0.95"/>
+          <rect x="15.5" y="3"  width="5" height="11" rx="2.5" fill="white" opacity="0.85"/>
+          <rect x="15.5" y="22" width="5" height="11" rx="2.5" fill="white" opacity="0.85"/>
+          <rect x="3"  y="15.5" width="11" height="5" rx="2.5" fill="white" opacity="0.85"/>
+          <rect x="22" y="15.5" width="11" height="5" rx="2.5" fill="white" opacity="0.85"/>
+        </svg>
+      </div>
+      <div class="site-logo-text">
+        <span class="site-logo-name">Arun Ortho</span>
+        <span class="site-logo-sub">Speciality Clinic</span>
+      </div>
+    </a>
+    <nav class="site-nav" role="navigation" aria-label="Main navigation">
+      <ul class="site-nav-list">
+        <li><a href="index.html" class="site-nav-link" data-label="Home">Home</a></li>
+        <li><a href="index.html#about" class="site-nav-link" data-label="About">About</a></li>
+        <li class="has-dropdown">
+          <a href="index.html#services" class="site-nav-link" data-label="Services" aria-haspopup="true" aria-expanded="false">
+            Services
+            <svg class="nav-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </a>
+          <div class="nav-dropdown" role="menu" aria-label="Services menu">
+            <div class="nav-dropdown-inner">
+              <div class="nav-dropdown-header">
+                <span class="nav-dropdown-title">Our Orthopaedic Services</span>
+                <span class="nav-dropdown-sub">Click any service for detailed information</span>
+              </div>
+              <ul class="nav-dropdown-list">
+                <li><a href="services/neck-back-pain.html" class="nav-dropdown-item" role="menuitem"><span class="ddi-icon">🦴</span><span class="ddi-text"><strong>Neck &amp; Back Pain</strong><small>Cervical &amp; lumbar spine care</small></span></a></li>
+                <li><a href="services/knee-pain-arthritis.html" class="nav-dropdown-item" role="menuitem"><span class="ddi-icon">🦵</span><span class="ddi-text"><strong>Knee Pain &amp; Arthritis</strong><small>Advanced knee management</small></span></a></li>
+                <li><a href="services/ligament-injury.html" class="nav-dropdown-item" role="menuitem"><span class="ddi-icon">⚡</span><span class="ddi-text"><strong>Ligament Injury</strong><small>ACL, PCL &amp; ligament repair</small></span></a></li>
+                <li><a href="services/minimally-invasive-surgery.html" class="nav-dropdown-item" role="menuitem"><span class="ddi-icon">🔬</span><span class="ddi-text"><strong>Minimally Invasive Surgery</strong><small>Keyhole surgical procedures</small></span></a></li>
+                <li><a href="services/trauma-fracture-care.html" class="nav-dropdown-item" role="menuitem"><span class="ddi-icon">🚑</span><span class="ddi-text"><strong>Trauma &amp; Fracture Care</strong><small>Emergency &amp; elective fracture care</small></span></a></li>
+                <li><a href="services/paediatric-orthopaedics.html" class="nav-dropdown-item" role="menuitem"><span class="ddi-icon">👶</span><span class="ddi-text"><strong>Paediatric Orthopaedics</strong><small>Children's bone &amp; joint care</small></span></a></li>
+                <li><a href="services/osteoporosis-treatment.html" class="nav-dropdown-item" role="menuitem"><span class="ddi-icon">💊</span><span class="ddi-text"><strong>Osteoporosis Treatment</strong><small>Bone density &amp; fracture prevention</small></span></a></li>
+                <li><a href="services/knee-hip-replacement.html" class="nav-dropdown-item" role="menuitem"><span class="ddi-icon">🦾</span><span class="ddi-text"><strong>Knee &amp; Hip Replacement</strong><small>Total joint replacement surgery</small></span></a></li>
+                <li><a href="services/rheumatoid-arthritis.html" class="nav-dropdown-item" role="menuitem"><span class="ddi-icon">🩺</span><span class="ddi-text"><strong>Rheumatoid Arthritis</strong><small>Inflammatory joint management</small></span></a></li>
+                <li><a href="services/sports-injury-care.html" class="nav-dropdown-item" role="menuitem"><span class="ddi-icon">🏃</span><span class="ddi-text"><strong>Sports Injury Care</strong><small>Athletic injury &amp; rehabilitation</small></span></a></li>
+              </ul>
+              <div class="nav-dropdown-footer"><a href="index.html#services" class="nav-dropdown-all">View All Services →</a></div>
+            </div>
+          </div>
+        </li>
+        <li><a href="index.html#doctor" class="site-nav-link" data-label="Doctor">Doctor</a></li>
+        <li><a href="index.html#testimonials" class="site-nav-link" data-label="Reviews">Reviews</a></li>
+        <li><a href="index.html#contact" class="site-nav-link" data-label="Contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="site-nav-actions">
+      <a href="tel:+918489992001" class="nav-emergency-btn" aria-label="Emergency">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 0112 18.85 19.5 19.5 0 015.15 12 19.79 19.79 0 013.07 4.18 2 2 0 015 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.91 9.94a16 16 0 006.86 6.86l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        <span>Emergency</span>
+      </a>
+      <a href="book-appointment.html" class="nav-appt-btn active">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Book Now
+      </a>
+      <button class="site-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- MOBILE DRAWER -->
+<div class="mobile-drawer" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+  <div class="drawer-panel">
+    <div class="drawer-head">
+      <div class="drawer-logo">
+        <div class="drawer-logo-box" aria-hidden="true">
+          <svg viewBox="0 0 26 26" fill="none"><circle cx="13" cy="13" r="5" fill="white" opacity="0.9"/><rect x="11.5" y="2" width="3" height="8" rx="1.5" fill="white" opacity="0.8"/><rect x="11.5" y="16" width="3" height="8" rx="1.5" fill="white" opacity="0.8"/><rect x="2" y="11.5" width="8" height="3" rx="1.5" fill="white" opacity="0.8"/><rect x="16" y="11.5" width="8" height="3" rx="1.5" fill="white" opacity="0.8"/></svg>
+        </div>
+        <div><div class="drawer-logo-name">Arun Ortho</div><div class="drawer-logo-sub">Speciality Clinic</div></div>
+      </div>
+      <button class="drawer-close" id="mobileClose" aria-label="Close menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <nav class="drawer-nav" aria-label="Mobile navigation">
+      <a href="index.html" class="drawer-link"><span class="drawer-link-icon">🏠</span> Home</a>
+      <a href="index.html#about" class="drawer-link"><span class="drawer-link-icon">ℹ️</span> About</a>
+      <div class="drawer-dropdown">
+        <button class="drawer-link drawer-dropdown-btn" aria-expanded="false" id="drawerDropdownBtn">
+          <span class="drawer-link-icon">🏥</span> Services
+          <svg class="drawer-arrow drawer-dropdown-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="drawer-dropdown-menu" id="mobileServicesMenu">
+          <a href="services/neck-back-pain.html" class="drawer-sublink"><span class="dd-icon">🦴</span> Neck &amp; Back Pain</a>
+          <a href="services/knee-pain-arthritis.html" class="drawer-sublink"><span class="dd-icon">🦵</span> Knee Pain &amp; Arthritis</a>
+          <a href="services/ligament-injury.html" class="drawer-sublink"><span class="dd-icon">⚡</span> Ligament Injury</a>
+          <a href="services/minimally-invasive-surgery.html" class="drawer-sublink"><span class="dd-icon">🔬</span> Minimally Invasive Surgery</a>
+          <a href="services/trauma-fracture-care.html" class="drawer-sublink"><span class="dd-icon">🚑</span> Trauma &amp; Fracture Care</a>
+          <a href="services/paediatric-orthopaedics.html" class="drawer-sublink"><span class="dd-icon">👶</span> Paediatric Orthopaedics</a>
+          <a href="services/osteoporosis-treatment.html" class="drawer-sublink"><span class="dd-icon">💊</span> Osteoporosis Treatment</a>
+          <a href="services/knee-hip-replacement.html" class="drawer-sublink"><span class="dd-icon">🦾</span> Knee &amp; Hip Replacement</a>
+          <a href="services/rheumatoid-arthritis.html" class="drawer-sublink"><span class="dd-icon">🩺</span> Rheumatoid Arthritis</a>
+          <a href="services/sports-injury-care.html" class="drawer-sublink"><span class="dd-icon">🏃</span> Sports Injury Care</a>
+        </div>
+      </div>
+      <a href="index.html#doctor" class="drawer-link"><span class="drawer-link-icon">👨‍⚕️</span> Doctor</a>
+      <a href="index.html#testimonials" class="drawer-link"><span class="drawer-link-icon">⭐</span> Reviews</a>
+      <a href="index.html#contact" class="drawer-link"><span class="drawer-link-icon">📞</span> Contact</a>
+    </nav>
+    <div class="drawer-footer">
+      <a href="tel:+918489992001" class="drawer-emergency">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 0112 18.85 19.5 19.5 0 015.15 12 19.79 19.79 0 013.07 4.18 2 2 0 015 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.91 9.94a16 16 0 006.86 6.86l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        Emergency: +91 84899 92001
+      </a>
+      <a href="book-appointment.html" class="drawer-appt">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Book Appointment
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ── PAGE CONTENT ── -->
+<main class="bk-page">
+
+  <!-- SIDEBAR -->
+  <aside class="bk-sidebar">
+
+    <!-- Title block -->
+    <div class="bk-title-block">
+      <span class="bk-page-badge">Online Booking</span>
+      <h1 class="bk-page-title">Book Your<br/><span>Appointment</span></h1>
+      <p class="bk-page-desc">Fill the form and we'll confirm your slot within 24 hours. Walk-ins also welcome.</p>
+    </div>
+
+    <!-- Doctor card -->
+    <div class="bk-doctor-card">
+      <div class="bk-doctor-avatar">👨‍⚕️</div>
+      <div>
+        <div class="bk-doctor-name">Dr. Arun D.</div>
+        <div class="bk-doctor-qual">MBBS, D.Ortho, DNB Ortho, MNAMS</div>
+        <div class="bk-doctor-avail">Available for Consultation</div>
+      </div>
+    </div>
+
+    <!-- Contact info -->
+    <div class="bk-info-card">
+      <div class="bk-info-card-title">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Contact Info
+      </div>
+      <div class="bk-info-rows">
+        <div class="bk-info-row">
+          <div class="bk-info-ico">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 0112 18.85 19.5 19.5 0 015.15 12 19.79 19.79 0 013.07 4.18 2 2 0 015 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.91 9.94a16 16 0 006.86 6.86l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          </div>
+          <div class="bk-info-text">
+            <div class="bk-info-lbl">Phone</div>
+            <div class="bk-info-val"><a href="tel:+918489992001">+91 84899 92001</a> &nbsp;·&nbsp; <a href="tel:+919087358891">+91 90873 58891</a></div>
+          </div>
+        </div>
+        <div class="bk-info-row">
+          <div class="bk-info-ico">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div class="bk-info-text">
+            <div class="bk-info-lbl">Email</div>
+            <div class="bk-info-val"><a href="mailto:orthoarun21@gmail.com">orthoarun21@gmail.com</a></div>
+          </div>
+        </div>
+        <div class="bk-info-row">
+          <div class="bk-info-ico">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="bk-info-text">
+            <div class="bk-info-lbl">Address</div>
+            <div class="bk-info-val">3/353 Kamarajar Nagar, Salem Main Road,<br/>Nallampalli, Dharmapuri – 636807</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Clinic timings -->
+    <div class="bk-info-card">
+      <div class="bk-info-card-title">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Clinic Timings
+      </div>
+      <div class="bk-timing-rows">
+        <div class="bk-timing-row"><span>Mon – Sat (Morning)</span><span>9:00 AM – 1:00 PM</span></div>
+        <div class="bk-timing-row"><span>Mon – Sat (Evening)</span><span>5:00 PM – 9:00 PM</span></div>
+        <div class="bk-timing-row"><span>Sunday</span><span>By Appointment</span></div>
+        <div class="bk-timing-row"><span class="bk-timing-emerg">Emergency</span><span class="bk-timing-emerg">24 / 7 ✦</span></div>
+      </div>
+    </div>
+
+  </aside>
+
+  <!-- MAIN FORM CARD -->
+  <div class="bk-form-card" id="formCard">
+
+    <!-- Form header -->
+    <div class="bk-form-head">
+      <h2>Patient Appointment Form</h2>
+      <p>All fields marked <span style="color:#ef4444;">*</span> are required. We'll call to confirm your booking.</p>
+    </div>
+
+    <!-- Success message -->
+    <div class="bk-success" id="bkSuccess">
+      <div class="bk-success-icon">✅</div>
+      <h3>Appointment Requested!</h3>
+      <p>Thank you! Our team will contact you within 24 hours to confirm your appointment slot with Dr. Arun D.</p>
+      <a href="index.html" class="bk-success-back">← Back to Home</a>
+    </div>
+
+    <!-- Form -->
+    <form id="bkForm" novalidate>
+
+      <!-- Personal info -->
+      <div class="bk-section-label">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        Personal Information
+      </div>
+      <div class="bk-grid">
+        <div class="bk-field">
+          <label class="bk-label" for="bkName">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            Full Name <span class="req">*</span>
+          </label>
+          <input type="text" id="bkName" name="name" class="bk-input" placeholder="e.g. Ramesh Kumar" autocomplete="name" required/>
+          <span class="bk-error" id="errName"></span>
+        </div>
+
+        <div class="bk-field">
+          <label class="bk-label" for="bkAge">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Age <span class="req">*</span>
+          </label>
+          <input type="number" id="bkAge" name="age" class="bk-input" placeholder="Your age" min="1" max="120" required/>
+          <span class="bk-error" id="errAge"></span>
+        </div>
+
+        <div class="bk-field">
+          <label class="bk-label" for="bkPhone">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 0112 18.85 19.5 19.5 0 015.15 12 19.79 19.79 0 013.07 4.18 2 2 0 015 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.91 9.94a16 16 0 006.86 6.86l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            Phone Number <span class="req">*</span>
+          </label>
+          <input type="tel" id="bkPhone" name="phone" class="bk-input" placeholder="10-digit mobile number" autocomplete="tel" required/>
+          <span class="bk-error" id="errPhone"></span>
+        </div>
+
+        <div class="bk-field">
+          <label class="bk-label" for="bkEmail">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Email Address
+          </label>
+          <input type="email" id="bkEmail" name="email" class="bk-input" placeholder="your@email.com" autocomplete="email"/>
+          <span class="bk-error" id="errEmail"></span>
+        </div>
+
+        <div class="bk-field full">
+          <label class="bk-label">Gender</label>
+          <div class="bk-radio-group">
+            <label class="bk-radio-label"><input type="radio" name="gender" value="male"/> Male</label>
+            <label class="bk-radio-label"><input type="radio" name="gender" value="female"/> Female</label>
+            <label class="bk-radio-label"><input type="radio" name="gender" value="other"/> Other</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Appointment details -->
+      <div class="bk-section-label">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Appointment Details
+      </div>
+      <div class="bk-grid">
+        <div class="bk-field">
+          <label class="bk-label" for="bkService">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            Service / Treatment <span class="req">*</span>
+          </label>
+          <select id="bkService" name="service" class="bk-select" required>
+            <option value="" disabled selected>Select a service</option>
+            <option value="neck-back-pain">Neck &amp; Back Pain</option>
+            <option value="knee-pain">Knee Pain / Arthritis</option>
+            <option value="ligament">Ligament Injury (ACL/PCL)</option>
+            <option value="mis">Minimally Invasive Surgery</option>
+            <option value="trauma">Trauma &amp; Fracture Care</option>
+            <option value="paediatric">Paediatric Orthopaedics</option>
+            <option value="osteoporosis">Osteoporosis Treatment</option>
+            <option value="joint-replacement">Knee &amp; Hip Replacement</option>
+            <option value="rheumatoid">Rheumatoid Arthritis</option>
+            <option value="sports">Sports Injury Care</option>
+            <option value="general">General Consultation</option>
+          </select>
+          <span class="bk-error" id="errService"></span>
+        </div>
+
+        <div class="bk-field">
+          <label class="bk-label" for="bkDate">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Preferred Date <span class="req">*</span>
+          </label>
+          <input type="date" id="bkDate" name="date" class="bk-input" required/>
+          <span class="bk-error" id="errDate"></span>
+        </div>
+
+        <div class="bk-field full">
+          <label class="bk-label">Preferred Time Slot</label>
+          <div class="bk-radio-group">
+            <label class="bk-radio-label"><input type="radio" name="timeSlot" value="morning"/> 🌅 Morning (9 AM – 1 PM)</label>
+            <label class="bk-radio-label"><input type="radio" name="timeSlot" value="evening"/> 🌇 Evening (5 PM – 9 PM)</label>
+          </div>
+        </div>
+
+        <div class="bk-field full">
+          <label class="bk-label" for="bkMessage">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+            Describe Your Symptoms / Concern
+          </label>
+          <textarea id="bkMessage" name="message" class="bk-textarea" placeholder="Briefly describe your pain, symptoms, or the injury. Include duration if known..." rows="4"></textarea>
+        </div>
+      </div>
+
+      <!-- Submit -->
+      <div class="bk-submit-row">
+        <button type="submit" class="bk-submit" id="bkSubmitBtn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          Confirm Appointment Request
+        </button>
+        <p class="bk-privacy">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+          Your personal information is secure and will never be shared with third parties.
+        </p>
+      </div>
+
+    </form>
+  </div>
+
+</main>
+
+<!-- FULL SITE FOOTER -->
+<footer class="footer" id="footer" aria-label="Site footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <div class="footer-logo-icon" aria-hidden="true">
+            <svg viewBox="0 0 26 26" fill="none" width="26" height="26"><circle cx="13" cy="13" r="5" fill="white" opacity="0.9"/><rect x="11.5" y="2" width="3" height="8" rx="1.5" fill="white" opacity="0.8"/><rect x="11.5" y="16" width="3" height="8" rx="1.5" fill="white" opacity="0.8"/><rect x="2" y="11.5" width="8" height="3" rx="1.5" fill="white" opacity="0.8"/><rect x="16" y="11.5" width="8" height="3" rx="1.5" fill="white" opacity="0.8"/></svg>
+          </div>
+          <div>
+            <div class="footer-logo-name">Arun Ortho Speciality Clinic</div>
+            <div class="footer-logo-tagline">Your Stability with Mobility is our Priority</div>
+          </div>
+        </div>
+        <p class="footer-about-text">A premier orthopaedic centre in Dharmapuri dedicated to restoring mobility and quality of life through advanced surgical care under Dr. Arun D.</p>
+        <div class="footer-socials" aria-label="Social media links">
+          <a href="#" class="social-btn" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          <a href="#" class="social-btn" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://wa.me/918489992001" class="social-btn" aria-label="WhatsApp"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+        </div>
+        <div class="footer-emergency-card" aria-label="24/7 emergency contact">
+          <div class="footer-emergency-title">🚨 24/7 Emergency</div>
+          <div class="footer-emergency-number">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.94a16 16 0 006.86 6.86l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            <a href="tel:+918489992001" style="color:inherit;">+91 84899 92001</a>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h4 class="footer-heading">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="index.html" class="footer-link">Home</a></li>
+          <li><a href="index.html#about" class="footer-link">About Us</a></li>
+          <li><a href="index.html#doctor" class="footer-link">Our Doctor</a></li>
+          <li><a href="index.html#services" class="footer-link">Services</a></li>
+          <li><a href="index.html#testimonials" class="footer-link">Testimonials</a></li>
+          <li><a href="index.html#contact" class="footer-link">Contact Us</a></li>
+          <li><a href="book-appointment.html" class="footer-link">Book Appointment</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-heading">Our Services</h4>
+        <ul class="footer-links">
+          <li><a href="services/knee-hip-replacement.html" class="footer-link">Knee &amp; Hip Replacement</a></li>
+          <li><a href="services/neck-back-pain.html" class="footer-link">Spine Pain Management</a></li>
+          <li><a href="services/trauma-fracture-care.html" class="footer-link">Trauma &amp; Fracture Care</a></li>
+          <li><a href="services/minimally-invasive-surgery.html" class="footer-link">Minimally Invasive Surgery</a></li>
+          <li><a href="services/sports-injury-care.html" class="footer-link">Sports Injury Care</a></li>
+          <li><a href="services/ligament-injury.html" class="footer-link">Ligament Injury</a></li>
+          <li><a href="services/paediatric-orthopaedics.html" class="footer-link">Paediatric Orthopaedics</a></li>
+          <li><a href="services/osteoporosis-treatment.html" class="footer-link">Osteoporosis Treatment</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-heading">Clinic Timings</h4>
+        <ul class="footer-links" style="gap:0.75rem;">
+          <li style="color:rgba(255,255,255,0.5);font-size:0.87rem;"><strong style="color:rgba(255,255,255,0.75);display:block;">Mon – Sat</strong>9:00 AM – 1:00 PM<br/>5:00 PM – 9:00 PM</li>
+          <li style="color:rgba(255,255,255,0.5);font-size:0.87rem;margin-top:0.5rem;"><strong style="color:rgba(255,255,255,0.75);display:block;">Sunday</strong>By Appointment Only</li>
+          <li style="color:rgba(255,255,255,0.5);font-size:0.87rem;margin-top:1rem;"><strong style="color:rgba(255,255,255,0.75);display:block;">📍 Address</strong>3/353, Kamarajar Nagar,<br/>Salem Main Road, Nallampalli,<br/>Dharmapuri – 636807</li>
+          <li style="color:rgba(255,255,255,0.5);font-size:0.87rem;margin-top:0.75rem;"><strong style="color:rgba(255,255,255,0.75);display:block;">✉️ Email</strong><a href="mailto:orthoarun21@gmail.com" style="color:rgba(0,212,212,0.8);">orthoarun21@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2024 <span>Arun Ortho Speciality Clinic</span>. All rights reserved. Crafted with ❤️ for better orthopaedic care.</p>
+      <div class="footer-bottom-links">
+        <a href="#" class="footer-bottom-link">Privacy Policy</a>
+        <a href="#" class="footer-bottom-link">Terms of Service</a>
+        <a href="#" class="footer-bottom-link">Disclaimer</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="script.js"></script>
+
+<script>
+  // Set minimum date to today
+  const dateInput = document.getElementById('bkDate');
+  if (dateInput) {
+    const today = new Date().toISOString().split('T')[0];
+    dateInput.setAttribute('min', today);
+  }
+
+  // Form validation & submit
+  const form = document.getElementById('bkForm');
+  const successEl = document.getElementById('bkSuccess');
+
+  function showError(id, msg) {
+    const el = document.getElementById(id);
+    if (el) { el.textContent = msg; }
+  }
+
+  function clearErrors() {
+    ['errName','errAge','errPhone','errEmail','errService','errDate'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = '';
+    });
+  }
+
+  function validate() {
+    clearErrors();
+    let valid = true;
+
+    const name = document.getElementById('bkName').value.trim();
+    if (!name) { showError('errName', 'Please enter your full name.'); valid = false; }
+
+    const age = document.getElementById('bkAge').value.trim();
+    if (!age || isNaN(age) || age < 1 || age > 120) { showError('errAge', 'Please enter a valid age.'); valid = false; }
+
+    const phone = document.getElementById('bkPhone').value.trim();
+    if (!phone || !/^[6-9]\d{9}$/.test(phone)) { showError('errPhone', 'Enter a valid 10-digit Indian mobile number.'); valid = false; }
+
+    const email = document.getElementById('bkEmail').value.trim();
+    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showError('errEmail', 'Enter a valid email address.'); valid = false; }
+
+    const service = document.getElementById('bkService').value;
+    if (!service) { showError('errService', 'Please select a service.'); valid = false; }
+
+    const date = document.getElementById('bkDate').value;
+    if (!date) { showError('errDate', 'Please select a preferred date.'); valid = false; }
+
+    return valid;
+  }
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    if (!validate()) return;
+
+    const btn = document.getElementById('bkSubmitBtn');
+    btn.disabled = true;
+    btn.innerHTML = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="spin"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/></svg> Sending...`;
+
+    setTimeout(() => {
+      form.style.display = 'none';
+      successEl.style.display = 'flex';
+      document.querySelector('.bk-form-head').style.display = 'none';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 1500);
+  });
+</script>
+
+<style>
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .spin { animation: spin 0.8s linear infinite; }
+</style>
+
+</body>
+</html>
