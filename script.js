@@ -215,71 +215,158 @@ const initCounters = () => {
 };
 
 /* ---------------------------------------------------------------
-   6. TESTIMONIAL SCROLL
+   6. TESTIMONIAL AUTO-SLIDING CAROUSEL
 --------------------------------------------------------------- */
-const initTestimonialScroll = () => {
-  const wrapper = $('#testimonialScroll');
-  if (!wrapper) return;
+const initTestiSlider = () => {
+  const track    = document.getElementById('testiTrack');
+  const viewport = document.getElementById('testiViewport');
+  const dotsWrap = document.getElementById('testiDots');
+  const btnPrev  = document.getElementById('testiPrev');
+  const btnNext  = document.getElementById('testiNext');
 
-  // Auto-scroll logic
-  let autoTimer;
-  const startAuto = () => {
-    autoTimer = setInterval(() => {
-      if (!wrapper) return;
-      const card = $('.testimonial-card', wrapper);
-      if (!card) return;
-      const cardWidth = card.offsetWidth + 24; // width + gap
-      
-      // If reached the end, scroll back to start
-      if (wrapper.scrollLeft + wrapper.clientWidth >= wrapper.scrollWidth - 10) {
-        wrapper.scrollTo({ left: 0, behavior: 'smooth' });
-      } else {
-        wrapper.scrollBy({ left: cardWidth, behavior: 'smooth' });
-      }
-    }, 4000);
+  if (!track || !viewport) return;
+
+  const cards   = [...track.querySelectorAll('.testi-card')];
+  const DELAY   = 4500;
+
+  let currentIdx = 0;
+  let autoTimer  = null;
+
+  /* ── Responsive helpers ── */
+  const getPerView = () => {
+    const w = window.innerWidth;
+    if (w >= 1024) return 3;
+    if (w >= 600)  return 2;
+    return 1;
   };
-  const stopAuto = () => clearInterval(autoTimer);
 
-  wrapper.addEventListener('mouseenter', stopAuto);
-  wrapper.addEventListener('mouseleave', startAuto);
-  wrapper.addEventListener('touchstart', stopAuto, { passive: true });
-  wrapper.addEventListener('touchend', startAuto, { passive: true });
+  /* Gap in px — must match CSS gap values */
+  const getGap = () => {
+    const w = window.innerWidth;
+    if (w >= 1024) return 24; /* 1.5rem */
+    if (w >= 600)  return 20; /* 1.25rem */
+    return 16;               /* 1rem */
+  };
 
-  // Optional: manual mouse drag to scroll on desktop
-  let isDown = false;
-  let startX;
-  let scrollLeft;
+  const getCardWidth = () => {
+    const perView = getPerView();
+    const gap     = getGap();
+    return (viewport.offsetWidth - gap * (perView - 1)) / perView;
+  };
 
-  wrapper.addEventListener('mousedown', (e) => {
-    isDown = true;
-    wrapper.style.cursor = 'grabbing';
-    wrapper.style.scrollSnapType = 'none'; // disable snap while dragging
-    startX = e.pageX - wrapper.offsetLeft;
-    scrollLeft = wrapper.scrollLeft;
-    stopAuto();
-  });
-  
-  wrapper.addEventListener('mouseleave', () => {
-    isDown = false;
-    wrapper.style.cursor = '';
-    wrapper.style.scrollSnapType = 'x mandatory';
-  });
-  
-  wrapper.addEventListener('mouseup', () => {
-    isDown = false;
-    wrapper.style.cursor = '';
-    wrapper.style.scrollSnapType = 'x mandatory';
-    startAuto();
-  });
-  
-  wrapper.addEventListener('mousemove', (e) => {
-    if (!isDown) return;
-    e.preventDefault();
-    const x = e.pageX - wrapper.offsetLeft;
-    const walk = (x - startX) * 1.5;
-    wrapper.scrollLeft = scrollLeft - walk;
+  const getTotalSlides = () => Math.max(0, cards.length - getPerView());
+
+  /* ── Resize card widths ── */
+  const resizeCards = () => {
+    const w = getCardWidth();
+    cards.forEach(c => {
+      c.style.minWidth = w + 'px';
+      c.style.maxWidth = w + 'px';
+    });
+  };
+
+  /* ── Move track ── */
+  const moveTo = (idx, instant = false) => {
+    const total = getTotalSlides();
+    currentIdx = Math.max(0, Math.min(idx, total));
+    const offset = currentIdx * (getCardWidth() + getGap());
+    track.style.transition = instant
+      ? 'none'
+      : 'transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+    track.style.transform = `translateX(-${offset}px)`;
+    updateDots();
+  };
+
+  /* ── Dot navigation ── */
+  const buildDots = () => {
+    if (!dotsWrap) return;
+    dotsWrap.innerHTML = '';
+    const total = getTotalSlides() + 1; // number of distinct positions
+    for (let i = 0; i <= getTotalSlides(); i++) {
+      const btn = document.createElement('button');
+      btn.className = 'testi-dot' + (i === currentIdx ? ' active' : '');
+      btn.setAttribute('aria-label', `Go to slide ${i + 1}`);
+      btn.setAttribute('role', 'tab');
+      btn.addEventListener('click', () => { moveTo(i); resetAuto(); });
+      dotsWrap.appendChild(btn);
+    }
+  };
+
+  const updateDots = () => {
+    if (!dotsWrap) return;
+    [...dotsWrap.querySelectorAll('.testi-dot')].forEach((d, i) => {
+      d.classList.toggle('active', i === currentIdx);
+    });
+  };
+
+  /* ── Auto-advance ── */
+  const startAuto = () => {
+    clearInterval(autoTimer);
+    autoTimer = setInterval(() => {
+      const next = currentIdx >= getTotalSlides() ? 0 : currentIdx + 1;
+      moveTo(next);
+    }, DELAY);
+  };
+
+  const stopAuto  = () => clearInterval(autoTimer);
+  const resetAuto = () => { stopAuto(); startAuto(); };
+
+  /* ── Arrow buttons ── */
+  btnPrev?.addEventListener('click', () => {
+    moveTo(currentIdx <= 0 ? getTotalSlides() : currentIdx - 1);
+    resetAuto();
   });
 
+  btnNext?.addEventListener('click', () => {
+    moveTo(currentIdx >= getTotalSlides() ? 0 : currentIdx + 1);
+    resetAuto();
+  });
+
+  /* ── Pause on hover ── */
+  viewport.addEventListener('mouseenter', stopAuto);
+  viewport.addEventListener('mouseleave', startAuto);
+
+  /* ── Touch swipe ── */
+  let touchX = 0;
+  viewport.addEventListener('touchstart', e => {
+    touchX = e.touches[0].clientX;
+  }, { passive: true });
+  viewport.addEventListener('touchend', e => {
+    const diff = touchX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 45) {
+      moveTo(diff > 0
+        ? (currentIdx >= getTotalSlides() ? 0 : currentIdx + 1)
+        : (currentIdx <= 0 ? getTotalSlides() : currentIdx - 1));
+      resetAuto();
+    }
+  }, { passive: true });
+
+  /* ── Keyboard accessibility ── */
+  document.addEventListener('keydown', e => {
+    const slider = document.getElementById('testimonials');
+    if (!slider) return;
+    const rect = slider.getBoundingClientRect();
+    if (rect.top > window.innerHeight || rect.bottom < 0) return; // not visible
+    if (e.key === 'ArrowLeft')  { moveTo(currentIdx <= 0 ? getTotalSlides() : currentIdx - 1); resetAuto(); }
+    if (e.key === 'ArrowRight') { moveTo(currentIdx >= getTotalSlides() ? 0 : currentIdx + 1); resetAuto(); }
+  });
+
+  /* ── Resize ── */
+  window.addEventListener('resize', debounce(() => {
+    resizeCards();
+    buildDots();
+    moveTo(Math.min(currentIdx, getTotalSlides()), true);
+  }, 200));
+
+  /* ── Pause when tab hidden ── */
+  document.addEventListener('visibilitychange', () => {
+    document.hidden ? stopAuto() : startAuto();
+  });
+
+  /* ── Init ── */
+  resizeCards();
+  buildDots();
+  moveTo(0, true);
   startAuto();
 };
 
@@ -588,7 +675,7 @@ const init = () => {
   initSmoothScroll();
   initScrollReveal();
   initCounters();
-  initTestimonialScroll();
+  initTestiSlider();                   // ← testimonial auto-slider
   initFormValidation();
   initLazyImages();
   initParallax();
