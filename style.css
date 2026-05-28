@@ -608,7 +608,7 @@ button, input, textarea, select {
   display: none;
   position: fixed;
   inset: 0;
-  z-index: calc(var(--z-nav) + 10);
+  z-index: 99999; /* Highest priority to cover floating buttons and sticky headers */
 }
 
 .mobile-drawer.open { display: block; }
@@ -633,7 +633,7 @@ button, input, textarea, select {
   top: 0;
   right: 0;
   bottom: 0;
-  width: min(340px, 90vw);
+  width: min(280px, 85vw);
   background: var(--nb-white);
   display: flex;
   flex-direction: column;
@@ -719,7 +719,7 @@ button, input, textarea, select {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  padding: 0.9rem 1.5rem;
+  padding: 0.8rem 1.25rem;
   font-size: 0.95rem;
   font-weight: 600;
   color: #1e3a5f;
@@ -780,7 +780,7 @@ button, input, textarea, select {
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  padding: 0.75rem 1.5rem 0.75rem 3.25rem;
+  padding: 0.75rem 1rem 0.75rem 2.25rem;
   font-size: 0.85rem;
   color: #475569;
   text-decoration: none;
@@ -4399,7 +4399,8 @@ img, video, iframe { max-width: 100%; }
 }
 
 /* ── PREVENT HORIZONTAL SCROLL ── */
-body { max-width: 100vw; overflow-x: hidden; }
+html, body { max-width: 100vw; }
+.site-main { width: 100%; overflow-x: hidden; }
 /* NOTE: do NOT set overflow:hidden on site-header — it clips the dropdown */
 .top-bar-wrapper { max-width: 100vw; overflow: hidden; }
 
