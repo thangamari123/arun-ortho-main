@@ -1079,11 +1079,14 @@
         </div>
       </div>
 
-      <!-- Success message -->
+      <!-- Success message Modal -->
       <div class="form-success" id="formSuccess" role="alert">
-        <div class="form-success-icon" aria-hidden="true">✅</div>
-        <div class="form-success-title">Appointment Requested!</div>
-        <p class="form-success-text">Thank you! We'll contact you within 24 hours to confirm your appointment slot.</p>
+        <div class="form-success-content">
+          <div class="form-success-icon" aria-hidden="true">✅</div>
+          <div class="form-success-title">Appointment Requested!</div>
+          <p class="form-success-text">Thank you! We'll contact you within 24 hours to confirm your appointment slot.</p>
+          <button type="button" class="bk-success-back" onclick="closeFormPopup()" style="border:none; cursor:pointer; margin-top:15px; display:inline-flex; align-items:center; background:linear-gradient(135deg, #0B4F96, #2563EB); color:#fff; font-size:0.9rem; font-weight:700; padding:0.75rem 2rem; border-radius:999px;">Got it, thanks!</button>
+        </div>
       </div>
 
       <!-- Form -->

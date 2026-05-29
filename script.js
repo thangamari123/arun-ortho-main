@@ -422,25 +422,25 @@ const initFormValidation = () => {
     const allValid = Object.keys(rules).map(validateField).every(Boolean);
 
     if (allValid) {
-      // Show success
-      form.style.display = 'none';
+      // Show success popup
       const success = $('#formSuccess');
       if (success) { success.classList.add('show'); }
 
-      // Reset after 5s
-      setTimeout(() => {
-        form.reset();
-        form.style.display = '';
-        if (success) success.classList.remove('show');
-        Object.keys(rules).forEach(name => {
-          const f = getField(name);
-          f?.classList.remove('error');
-          const err = getError(name);
-          if (err) err.classList.remove('show');
-        });
-      }, 5000);
+      // Reset immediately
+      form.reset();
+      Object.keys(rules).forEach(name => {
+        const f = getField(name);
+        f?.classList.remove('error');
+        const err = getError(name);
+        if (err) err.classList.remove('show');
+      });
     }
   });
+};
+
+window.closeFormPopup = function() {
+  const success = document.getElementById('formSuccess');
+  if (success) { success.classList.remove('show'); }
 };
 
 /* ---------------------------------------------------------------
