@@ -227,6 +227,22 @@ body {
   border: 1px solid rgba(10, 124, 124,0.2);
 }
 
+/* ── FEATURED IMAGE ── */
+.sp-featured-img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 640px) {
+  .sp-featured-img {
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+}
+
 /* ── GRID LAYOUT ── */
 .sp-section-grid {
   display: grid;
@@ -516,6 +532,37 @@ body {
   .sp-step-num { width: 44px; height: 44px; min-width: 44px; font-size: 0.75rem; }
 }
 
+/* ── FAQ HEADING ── */
+.sp-faq-heading {
+  font-family: 'Outfit', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #061d2d;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 640px) {
+  .sp-faq-heading {
+    font-size: 1.4rem;
+    line-height: 1.3;
+  }
+}
+
+/* ── PATIENT STORIES HEADING ── */
+.sp-patients-heading {
+  font-size: 2.2rem;
+  color: #1e293b;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 640px) {
+  .sp-patients-heading {
+    font-size: 1.35rem;
+    line-height: 1.3;
+    margin-bottom: 0.75rem;
+  }
+}
+
 /* ── FAQ SECTION ── */
 .sp-faq-grid {
   display: flex;
@@ -581,7 +628,7 @@ body {
 
 /* ── ANNOUNCEMENT BAR ── */
 .announcement-bar {
-  background: #dc2626;
+  background: #012243;
   color: #fff;
   overflow: hidden;
   white-space: nowrap;

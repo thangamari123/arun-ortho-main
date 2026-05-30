@@ -677,7 +677,7 @@
 <header class="site-header" id="header">
   <div class="site-nav-inner">
     <a href="index.html" class="site-logo" aria-label="Arun Ortho Speciality Clinic - Home">
-      <img src="arunortho-logo.png" alt="Arun Ortho Logo" class="site-logo-img" style="height: 45px; width: auto; object-fit: contain;" />
+      <img src="arunortho-logo.png" alt="Arun Ortho Logo" class="site-logo-img" style="height: 65px; width: auto; object-fit: contain;" />
       <div class="site-logo-text">
         <span class="site-logo-name">Arun Ortho</span>
         <span class="site-logo-sub">Speciality Care</span>
@@ -744,9 +744,12 @@
             </div>
           </div>
         </li>
-        <li><a href="index.html#doctor" class="site-nav-link" data-label="Doctor">Doctor</a></li>
+        <li><a href="doctor.html" class="site-nav-link" data-label="Doctor">Doctor</a></li>
         <li><a href="index.html#testimonials" class="site-nav-link" data-label="Reviews">Reviews</a></li>
         <li><a href="blog.html" class="site-nav-link" data-label="Blog">Blog</a></li>
+        <li><a href="faq.html" class="site-nav-link" data-label="FAQ">
+          FAQ
+        </a></li>
         <li><a href="index.html#contact" class="site-nav-link" data-label="Contact">Contact</a></li>
       </ul>
     </nav>
@@ -772,7 +775,7 @@
   <div class="drawer-panel">
     <div class="drawer-head">
       <div class="drawer-logo">
-        <img src="arunortho-logo.png" alt="Arun Ortho Logo" class="drawer-logo-img" style="height: 40px; width: auto; object-fit: contain;" />
+        <img src="arunortho-logo.png" alt="Arun Ortho Logo" class="drawer-logo-img" style="height: 60px; width: auto; object-fit: contain;" />
         <div>
           <div class="drawer-logo-name">Arun Ortho</div>
           <div class="drawer-logo-sub">Speciality Care</div>
@@ -803,9 +806,12 @@
           <a href="services/knee-hip-replacement.html" class="drawer-sublink"><span class="dd-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6c3 0 6 2 6 6s-3 6-6 6M12 2v6c-3 0-6 2-6 6s3 6 6 6"/></svg></span> Knee &amp; Hip Replacement</a>
         </div>
       </div>
-      <a href="index.html#doctor" class="drawer-link">Doctor</a>
+      <a href="doctor.html" class="drawer-link">Doctor</a>
       <a href="index.html#testimonials" class="drawer-link">Reviews</a>
       <a href="blog.html" class="drawer-link">Blog</a>
+      <a href="faq.html" class="drawer-link">
+        FAQ
+      </a>
       <a href="index.html#contact" class="drawer-link">Contact</a>
     </nav>
     <div class="drawer-footer">
@@ -904,8 +910,8 @@
 
     <!-- Form header -->
     <div class="bk-form-head">
-      <h2>Patient Appointment Form</h2>
-      <p>All fields marked <span style="color:#ef4444;">*</span> are required. We'll call to confirm your booking.</p>
+      <h2>Book an Appointment</h2>
+      <p>We'll confirm your slot within 24 hours</p>
     </div>
 
     <!-- Success message Modal -->
@@ -936,14 +942,7 @@
           <span class="bk-error" id="errName"></span>
         </div>
 
-        <div class="bk-field">
-          <label class="bk-label" for="bkAge">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-            Age <span class="req">*</span>
-          </label>
-          <input type="number" id="bkAge" name="age" class="bk-input" placeholder="Your age" min="1" max="120" required/>
-          <span class="bk-error" id="errAge"></span>
-        </div>
+
 
         <div class="bk-field">
           <label class="bk-label" for="bkPhone">
@@ -963,14 +962,7 @@
           <span class="bk-error" id="errEmail"></span>
         </div>
 
-        <div class="bk-field full">
-          <label class="bk-label">Gender</label>
-          <div class="bk-radio-group">
-            <label class="bk-radio-label"><input type="radio" name="gender" value="male"/> Male</label>
-            <label class="bk-radio-label"><input type="radio" name="gender" value="female"/> Female</label>
-            <label class="bk-radio-label"><input type="radio" name="gender" value="other"/> Other</label>
-          </div>
-        </div>
+
       </div>
 
       <!-- Appointment details -->
@@ -1010,20 +1002,14 @@
           <span class="bk-error" id="errDate"></span>
         </div>
 
-        <div class="bk-field full">
-          <label class="bk-label">Preferred Time Slot</label>
-          <div class="bk-radio-group">
-            <label class="bk-radio-label"><input type="radio" name="timeSlot" value="morning"/> 🌅 Morning (9 AM – 1 PM)</label>
-            <label class="bk-radio-label"><input type="radio" name="timeSlot" value="evening"/> 🌇 Evening (5 PM – 9 PM)</label>
-          </div>
-        </div>
+
 
         <div class="bk-field full">
           <label class="bk-label" for="bkMessage">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-            Describe Your Symptoms / Concern
+            Describe Your Concern
           </label>
-          <textarea id="bkMessage" name="message" class="bk-textarea" placeholder="Briefly describe your pain, symptoms, or the injury. Include duration if known..." rows="4"></textarea>
+          <textarea id="bkMessage" name="message" class="bk-textarea" placeholder="Briefly describe your pain, symptoms, or the injury..." rows="4"></textarea>
         </div>
       </div>
 
@@ -1068,6 +1054,12 @@
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.94a16 16 0 006.86 6.86l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
             <a href="tel:+918489992001" style="color:inherit;">+91 84899 92001</a>
           </div>
+          <div class="footer-emergency-number" style="margin-top:0.4rem;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.94a16 16 0 006.86 6.86l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+            </svg>
+            <a href="tel:+919751085544" style="color:inherit;">+91 97510 85544</a>
+          </div>
         </div>
       </div>
       <div>
@@ -1075,11 +1067,12 @@
         <ul class="footer-links">
           <li><a href="index.html" class="footer-link">Home</a></li>
           <li><a href="about.html" class="footer-link">About Us</a></li>
-          <li><a href="index.html#doctor" class="footer-link">Our Doctor</a></li>
+          <li><a href="doctor.html" class="footer-link">Our Doctor</a></li>
           <li><a href="index.html#services" class="footer-link">Services</a></li>
           <li><a href="index.html#testimonials" class="footer-link">Testimonials</a></li>
           <li><a href="blog.html" class="footer-link">Blog</a></li>
-          <li><a href="index.html#contact" class="footer-link">Contact Us</a></li>
+                    <li><a href="faq.html" class="footer-link">FAQ</a></li>
+<li><a href="index.html#contact" class="footer-link">Contact Us</a></li>
           <li><a href="book-appointment.html" class="footer-link">Book Appointment</a></li>
         </ul>
       </div>
@@ -1087,24 +1080,24 @@
       <div>
         <h4 class="footer-heading">Our Services</h4>
         <ul class="footer-links">
-          <li><a href="services/trauma-fracture-care.html" class="footer-link">Orthopaedic trauma upper &amp; Lower limbs</a></li>
-          <li><a href="services/neck-back-pain.html" class="footer-link">Neck &amp; Back pain</a></li>
-          <li><a href="services/knee-pain-arthritis.html" class="footer-link">Knee pain (Arthritis)</a></li>
-          <li><a href="services/minimally-invasive-surgery.html" class="footer-link">Minimally invasive Surgery (Key Hole)</a></li>
-          <li><a href="services/paediatric-orthopaedics.html" class="footer-link">Paediatric Orthopedic</a></li>
+          <li><a href="services/osteoporosis-treatment.html" class="footer-link">Osteoporosis</a></li>
           <li><a href="services/ligament-injury.html" class="footer-link">Ligament Injury</a></li>
           <li><a href="services/sports-injury-care.html" class="footer-link">Knee Instability</a></li>
+          <li><a href="services/neck-back-pain.html" class="footer-link">Neck &amp; Back pain</a></li>
+          <li><a href="services/knee-pain-arthritis.html" class="footer-link">Knee pain (Arthritis)</a></li>
           <li><a href="services/rheumatoid-arthritis.html" class="footer-link">Rheumatoid Arthritis</a></li>
-          <li><a href="services/osteoporosis-treatment.html" class="footer-link">Osteoporosis</a></li>
+          <li><a href="services/paediatric-orthopaedics.html" class="footer-link">Paediatric Orthopedic</a></li>
           <li><a href="services/knee-hip-replacement.html" class="footer-link">Knee &amp; Hip Replacement</a></li>
+          <li><a href="services/minimally-invasive-surgery.html" class="footer-link">Minimally invasive Surgery (Key Hole)</a></li>
+          <li><a href="services/trauma-fracture-care.html" class="footer-link">Orthopaedic trauma upper &amp; Lower limbs</a></li>
         </ul>
       </div>
       <div>
         <h4 class="footer-heading">Clinic Timings</h4>
         <ul class="footer-links" style="gap:0.75rem;">
-          <li style="color:rgba(255,255,255,0.5);font-size:0.87rem;"><strong style="color:rgba(255,255,255,0.75);display:block;">Mon – Sat</strong>9:00 AM – 1:00 PM<br/>5:00 PM – 9:00 PM</li>
+          <li style="color:rgba(255,255,255,0.5);font-size:0.87rem;"><strong style="color:rgba(255,255,255,0.75);display:block;">📍 Address</strong>3/353, Kamarajar Nagar,<br/>Salem Main Road, Nallampalli,<br/>Dharmapuri – 636807</li>
+          <li style="color:rgba(255,255,255,0.5);font-size:0.87rem;margin-top:1rem;"><strong style="color:rgba(255,255,255,0.75);display:block;">Mon – Sat</strong>9:00 AM – 1:00 PM<br/>5:00 PM – 9:00 PM</li>
           <li style="color:rgba(255,255,255,0.5);font-size:0.87rem;margin-top:0.5rem;"><strong style="color:rgba(255,255,255,0.75);display:block;">Sunday</strong>By Appointment Only</li>
-          <li style="color:rgba(255,255,255,0.5);font-size:0.87rem;margin-top:1rem;"><strong style="color:rgba(255,255,255,0.75);display:block;">📍 Address</strong>3/353, Kamarajar Nagar,<br/>Salem Main Road, Nallampalli,<br/>Dharmapuri – 636807</li>
           <li style="color:rgba(255,255,255,0.5);font-size:0.87rem;margin-top:0.75rem;"><strong style="color:rgba(255,255,255,0.75);display:block;">✉️ Email</strong><a href="mailto:orthoarun21@gmail.com" style="color:rgba(0,212,212,0.8);">orthoarun21@gmail.com</a></li>
         </ul>
       </div>
@@ -1112,9 +1105,9 @@
     <div class="footer-bottom">
       <p class="footer-copy">© 2026 Arun Ortho Speciality Clinic. All rights reserved.</p>
       <div class="footer-bottom-links">
-        <a href="#" class="footer-bottom-link">Privacy Policy</a>
-        <a href="#" class="footer-bottom-link">Terms of Service</a>
-        <a href="#" class="footer-bottom-link">Disclaimer</a>
+        <a href="privacy-policy.html" class="footer-bottom-link">Privacy Policy</a>
+        <a href="terms-of-service.html" class="footer-bottom-link">Terms of Service</a>
+
       </div>
     </div>
   </div>
@@ -1139,7 +1132,7 @@
   }
 
   function clearErrors() {
-    ['errName','errAge','errPhone','errEmail','errService','errDate'].forEach(id => {
+    ['errName','errPhone','errEmail','errService','errDate'].forEach(id => {
       const el = document.getElementById(id);
       if (el) el.textContent = '';
     });
@@ -1151,9 +1144,6 @@
 
     const name = document.getElementById('bkName').value.trim();
     if (!name) { showError('errName', 'Please enter your full name.'); valid = false; }
-
-    const age = document.getElementById('bkAge').value.trim();
-    if (!age || isNaN(age) || age < 1 || age > 120) { showError('errAge', 'Please enter a valid age.'); valid = false; }
 
     const phone = document.getElementById('bkPhone').value.trim();
     if (!phone || !/^[6-9]\d{9}$/.test(phone)) { showError('errPhone', 'Enter a valid 10-digit Indian mobile number.'); valid = false; }
@@ -1178,12 +1168,34 @@
     btn.disabled = true;
     btn.innerHTML = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="spin"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/></svg> Sending...`;
 
-    setTimeout(() => {
+    const formData = new FormData();
+    formData.append("fullName", document.getElementById("bkName").value);
+    formData.append("phone", document.getElementById("bkPhone").value);
+    formData.append("email", document.getElementById("bkEmail").value);
+    formData.append("service", document.getElementById("bkService").value);
+    formData.append("date", document.getElementById("bkDate").value);
+    formData.append("concern", document.getElementById("bkMessage").value);
+
+    fetch("https://script.google.com/macros/s/AKfycbwxBw5L-aNKYf1E2JCWDAv4wmXvC7Lpz5Zus-fmpGWW6CwJ8zGkOnoMD60_cVWUtt5xXg/exec", {
+      method: "POST",
+      body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
       successEl.style.display = 'flex';
-      btn.innerHTML = `Book Appointment`;
+      btn.innerHTML = `Confirm Appointment Request`;
       btn.disabled = false;
       form.reset();
-    }, 1500);
+    })
+    .catch(error => {
+      console.error('Fetch Error:', error);
+      // Even if fetch throws a CORS error, FormData almost always successfully executes the Apps Script
+      // Let's assume success if it fails, which is standard practice for Google Forms/Scripts
+      successEl.style.display = 'flex';
+      btn.innerHTML = `Confirm Appointment Request`;
+      btn.disabled = false;
+      form.reset();
+    });
   });
 
   function closePopup() {

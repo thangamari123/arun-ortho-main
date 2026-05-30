@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
@@ -27,7 +27,7 @@
 <header class="site-header" id="header">
   <div class="site-nav-inner">
     <a href="../index.html" class="site-logo" aria-label="Arun Ortho Speciality Clinic - Home">
-      <img src="../arunortho-logo.png" alt="Arun Ortho Logo" class="site-logo-img" style="height: 45px; width: auto; object-fit: contain;" />
+      <img src="../arunortho-logo.png" alt="Arun Ortho Logo" class="site-logo-img" style="height: 65px; width: auto; object-fit: contain;" />
       <div class="site-logo-text">
         <span class="site-logo-name">Arun Ortho</span>
         <span class="site-logo-sub">Speciality Care</span>
@@ -94,9 +94,12 @@
             </div>
           </div>
         </li>
-        <li><a href="../index.html#doctor" class="site-nav-link" data-label="Doctor">Doctor</a></li>
+        <li><a href="../doctor.html" class="site-nav-link" data-label="Doctor">Doctor</a></li>
         <li><a href="../index.html#testimonials" class="site-nav-link" data-label="Reviews">Reviews</a></li>
         <li><a href="../blog.html" class="site-nav-link" data-label="Blog">Blog</a></li>
+        <li><a href="../faq.html" class="site-nav-link" data-label="FAQ">
+          FAQ
+        </a></li>
         <li><a href="../index.html#contact" class="site-nav-link" data-label="Contact">Contact</a></li>
       </ul>
     </nav>
@@ -122,7 +125,7 @@
   <div class="drawer-panel">
     <div class="drawer-head">
       <div class="drawer-logo">
-        <img src="../arunortho-logo.png" alt="Arun Ortho Logo" class="drawer-logo-img" style="height: 40px; width: auto; object-fit: contain;" />
+        <img src="../arunortho-logo.png" alt="Arun Ortho Logo" class="drawer-logo-img" style="height: 60px; width: auto; object-fit: contain;" />
         <div>
           <div class="drawer-logo-name">Arun Ortho</div>
           <div class="drawer-logo-sub">Speciality Care</div>
@@ -153,9 +156,12 @@
           <a href="knee-hip-replacement.html" class="drawer-sublink"><span class="dd-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6c3 0 6 2 6 6s-3 6-6 6M12 2v6c-3 0-6 2-6 6s3 6 6 6"/></svg></span> Knee &amp; Hip Replacement</a>
         </div>
       </div>
-      <a href="../index.html#doctor" class="drawer-link">Doctor</a>
+      <a href="../doctor.html" class="drawer-link">Doctor</a>
       <a href="../index.html#testimonials" class="drawer-link">Reviews</a>
       <a href="../blog.html" class="drawer-link">Blog</a>
+      <a href="../faq.html" class="drawer-link">
+        FAQ
+      </a>
       <a href="../index.html#contact" class="drawer-link">Contact</a>
     </nav>
     <div class="drawer-footer">
@@ -175,17 +181,19 @@
 <section class="sp-hero">
   <div class="sp-hero-badge">Orthopaedic Spine Care</div>
   <h1>Neck &amp; Back Pain</h1>
-  <p>Advanced diagnosis and treatment for cervical and lumbar spine conditions — from conservative therapy to surgical intervention.</p>
-  <div class="sp-hero-actions">
-    <a href="../book-appointment.html" class="sp-primary-btn">Book Consultation</a>
-    <a href="tel:+918489992001" class="sp-outline-btn">Call Now</a>
-  </div>
+<div class="sp-breadcrumb" style="display: flex; justify-content: center; gap: 0.5rem; font-size: 0.95rem; margin-top: 2rem; color: rgba(255,255,255,0.8); align-items: center;">
+  <a href="../index.html" style="color: white; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#00d4d4'" onmouseout="this.style.color='white'">Home</a> 
+  <span style="font-size: 0.8rem;">&gt;</span> 
+  <a href="../index.html#services" style="color: white; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#00d4d4'" onmouseout="this.style.color='white'">Service</a> 
+  <span style="font-size: 0.8rem;">&gt;</span> 
+  <span style="color: #00d4d4; font-weight: 600;">Neck &amp; Back Pain</span>
+</div>
 </section>
 
 <div class="sp-container">
   <!-- Overview -->
   <section class="sp-section">
-    <div style="margin-bottom: 3rem;"><img src="https://res.cloudinary.com/dcldlvuib/image/upload/v1779890748/treatment1_1_sn1tzd.png" alt="Medical Treatment" style="width: 100%; height: 400px; object-fit: cover; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);"></div>
+    <div style="margin-bottom: 3rem;"><img src="https://res.cloudinary.com/dcldlvuib/image/upload/v1779890748/treatment1_1_sn1tzd.png" alt="Medical Treatment" class="sp-featured-img"></div>
     <div class="sp-section-grid">
       <div>
         <span class="sp-label">What We Treat</span>
@@ -239,7 +247,7 @@
   <section class="sp-section" style="background: #f0f7f9; padding: 4rem 1.5rem; margin-top: 3rem; border-radius: 20px;">
     <div style="text-align: center; margin-bottom: 3rem;">
       <span class="sp-label" style="margin: 0 auto 1rem;">Patient Stories</span>
-      <h2 style="font-size: 2.2rem; color: #1e293b; margin-bottom: 1rem;">What Our Patients Say</h2>
+      <h2 class="sp-patients-heading">What Our Patients Say</h2>
       <p style="color: #475569; max-width: 600px; margin: 0 auto; line-height: 1.6;">Real experiences from patients who have regained their mobility and quality of life at our clinic.</p>
     </div>
     
@@ -313,14 +321,75 @@
     </div>
     <div class="testi-dots" id="testiDots" role="tablist" aria-label="Review slide navigation"></div>
     <div style="text-align: center; margin-top: 3rem;">
-      <a href="../patient-reviews.html" class="sp-outline-btn">Read All Patient Stories</a>
+      <a href="../patient-reviews.html" class="sp-primary-btn">Read All Patient Stories</a>
     </div>
   </section>
 
-  <section class="sp-section sp-alt"><span class="sp-label">FAQ</span><h2>Frequently Asked Questions</h2><div class="sp-faq-grid"><div class="sp-faq-item"><div class="sp-faq-q">How do I know if my back pain requires surgery?</div><div class="sp-faq-a">Most back pain resolves with conservative care. Surgery is typically considered only if you have progressive nerve damage, weakness, or pain that doesn't improve after weeks of non-surgical treatments.</div></div><div class="sp-faq-item"><div class="sp-faq-q">What is the recovery time for a slipped disc?</div><div class="sp-faq-a">With conservative treatment like physiotherapy and medication, a slipped disc can improve within 4 to 6 weeks. If surgery is required, recovery may take a few months.</div></div><div class="sp-faq-item"><div class="sp-faq-q">Are spine injections safe?</div><div class="sp-faq-a">Yes, epidural steroid injections and nerve blocks are very safe when performed by experienced specialists. They provide significant relief by directly targeting inflammation around the nerves.</div></div></div></section>
+
   
   <!-- CTA -->
-  <section class="sp-cta">
+  
+<!-- ================================================================
+     FAQ SECTION
+================================================================ -->
+<section class="section" style="background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%); padding: 5rem 1.5rem;" aria-label="Frequently Asked Questions">
+  <div class="container faq-container" style="max-width: 850px;">
+    <div style="text-align: center; margin-bottom: 3.5rem;">
+      <span class="section-label" style="background: white; border: 1px solid #e2e8f0; color: #00d4d4; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px;">FAQ</span>
+      <h2 class="section-title sp-faq-heading">Common Questions About <br/><span class="highlight">Neck & Back Pain</span></h2>
+    </div>
+    
+    <div>
+      <details>
+        <summary>
+          When should I seek medical help for back pain?
+          <span class="faq-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+        </summary>
+        <div class="faq-content">
+          You should see a doctor if your back pain is severe, doesn't improve with rest, radiates down your legs, causes numbness or tingling, or is accompanied by fever or loss of bowel/bladder control.
+        </div>
+      </details>
+      <details>
+        <summary>
+          What is sciatica and how is it treated?
+          <span class="faq-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+        </summary>
+        <div class="faq-content">
+          Sciatica is nerve pain that travels from your lower back down through your hips and legs. Treatment often includes physical therapy, anti-inflammatory medications, steroid injections, and in severe cases, minimally invasive surgery.
+        </div>
+      </details>
+      <details>
+        <summary>
+          Does bad posture cause chronic neck pain?
+          <span class="faq-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+        </summary>
+        <div class="faq-content">
+          Yes, prolonged poor posture, especially from looking down at phones or sitting hunched at a computer (often called 'text neck'), strains the cervical spine and surrounding muscles, leading to chronic pain.
+        </div>
+      </details>
+      <details>
+        <summary>
+          Will I definitely need spine surgery?
+          <span class="faq-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+        </summary>
+        <div class="faq-content">
+          No, the vast majority of neck and back pain cases are resolved using conservative, non-surgical treatments like physical therapy, lifestyle modifications, and medication. Surgery is a last resort.
+        </div>
+      </details>
+      <details>
+        <summary>
+          Are spinal injections safe?
+          <span class="faq-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+        </summary>
+        <div class="faq-content">
+          Yes, when performed by a specialist like Dr. Arun, epidural steroid injections are a safe and highly effective way to reduce severe spinal nerve inflammation and provide lasting pain relief.
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="sp-cta">
     <h2>Ready to Live Pain-Free?</h2>
     <p>Book your consultation with Dr. Arun D. today and take the first step towards recovery.</p>
     <div class="sp-cta-actions">
@@ -354,6 +423,12 @@
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.94a16 16 0 006.86 6.86l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
             <a href="tel:+918489992001" style="color:inherit;">+91 84899 92001</a>
           </div>
+          <div class="footer-emergency-number" style="margin-top:0.4rem;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.94a16 16 0 006.86 6.86l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+            </svg>
+            <a href="tel:+919751085544" style="color:inherit;">+91 97510 85544</a>
+          </div>
         </div>
       </div>
       <div>
@@ -361,11 +436,12 @@
         <ul class="footer-links">
           <li><a href="../index.html" class="footer-link">Home</a></li>
           <li><a href="../about.html" class="footer-link">About Us</a></li>
-          <li><a href="../index.html#doctor" class="footer-link">Our Doctor</a></li>
+          <li><a href="../doctor.html" class="footer-link">Our Doctor</a></li>
           <li><a href="../index.html#services" class="footer-link">Services</a></li>
           <li><a href="../index.html#testimonials" class="footer-link">Testimonials</a></li>
           <li><a href="../blog.html" class="footer-link">Blog</a></li>
-          <li><a href="../index.html#contact" class="footer-link">Contact Us</a></li>
+                    <li><a href="../faq.html" class="footer-link">FAQ</a></li>
+<li><a href="../index.html#contact" class="footer-link">Contact Us</a></li>
           <li><a href="../book-appointment.html" class="footer-link">Book Appointment</a></li>
         </ul>
       </div>
@@ -373,24 +449,24 @@
       <div>
         <h4 class="footer-heading">Our Services</h4>
         <ul class="footer-links">
-          <li><a href="trauma-fracture-care.html" class="footer-link">Orthopaedic trauma upper &amp; Lower limbs</a></li>
-          <li><a href="neck-back-pain.html" class="footer-link">Neck &amp; Back pain</a></li>
-          <li><a href="knee-pain-arthritis.html" class="footer-link">Knee pain (Arthritis)</a></li>
-          <li><a href="minimally-invasive-surgery.html" class="footer-link">Minimally invasive Surgery (Key Hole)</a></li>
-          <li><a href="paediatric-orthopaedics.html" class="footer-link">Paediatric Orthopedic</a></li>
+          <li><a href="osteoporosis-treatment.html" class="footer-link">Osteoporosis</a></li>
           <li><a href="ligament-injury.html" class="footer-link">Ligament Injury</a></li>
           <li><a href="sports-injury-care.html" class="footer-link">Knee Instability</a></li>
+          <li><a href="neck-back-pain.html" class="footer-link">Neck &amp; Back pain</a></li>
+          <li><a href="knee-pain-arthritis.html" class="footer-link">Knee pain (Arthritis)</a></li>
           <li><a href="rheumatoid-arthritis.html" class="footer-link">Rheumatoid Arthritis</a></li>
-          <li><a href="osteoporosis-treatment.html" class="footer-link">Osteoporosis</a></li>
+          <li><a href="paediatric-orthopaedics.html" class="footer-link">Paediatric Orthopedic</a></li>
           <li><a href="knee-hip-replacement.html" class="footer-link">Knee &amp; Hip Replacement</a></li>
+          <li><a href="minimally-invasive-surgery.html" class="footer-link">Minimally invasive Surgery (Key Hole)</a></li>
+          <li><a href="trauma-fracture-care.html" class="footer-link">Orthopaedic trauma upper &amp; Lower limbs</a></li>
         </ul>
       </div>
       <div>
         <h4 class="footer-heading">Clinic Timings</h4>
         <ul class="footer-links" style="gap:0.75rem;">
-          <li style="color:rgba(255,255,255,0.5);font-size:0.87rem;"><strong style="color:rgba(255,255,255,0.75);display:block;">Mon – Sat</strong>9:00 AM – 1:00 PM<br/>5:00 PM – 9:00 PM</li>
+          <li style="color:rgba(255,255,255,0.5);font-size:0.87rem;"><strong style="color:rgba(255,255,255,0.75);display:block;">📍 Address</strong>3/353, Kamarajar Nagar,<br/>Salem Main Road, Nallampalli,<br/>Dharmapuri – 636807</li>
+          <li style="color:rgba(255,255,255,0.5);font-size:0.87rem;margin-top:1rem;"><strong style="color:rgba(255,255,255,0.75);display:block;">Mon – Sat</strong>9:00 AM – 1:00 PM<br/>5:00 PM – 9:00 PM</li>
           <li style="color:rgba(255,255,255,0.5);font-size:0.87rem;margin-top:0.5rem;"><strong style="color:rgba(255,255,255,0.75);display:block;">Sunday</strong>By Appointment Only</li>
-          <li style="color:rgba(255,255,255,0.5);font-size:0.87rem;margin-top:1rem;"><strong style="color:rgba(255,255,255,0.75);display:block;">📍 Address</strong>3/353, Kamarajar Nagar,<br/>Salem Main Road, Nallampalli,<br/>Dharmapuri – 636807</li>
           <li style="color:rgba(255,255,255,0.5);font-size:0.87rem;margin-top:0.75rem;"><strong style="color:rgba(255,255,255,0.75);display:block;">✉️ Email</strong><a href="mailto:orthoarun21@gmail.com" style="color:rgba(0,212,212,0.8);">orthoarun21@gmail.com</a></li>
         </ul>
       </div>
@@ -398,9 +474,9 @@
     <div class="footer-bottom">
       <p class="footer-copy">© 2026 Arun Ortho Speciality Clinic. All rights reserved.</p>
       <div class="footer-bottom-links">
-        <a href="#" class="footer-bottom-link">Privacy Policy</a>
-        <a href="#" class="footer-bottom-link">Terms of Service</a>
-        <a href="#" class="footer-bottom-link">Disclaimer</a>
+        <a href="../privacy-policy.html" class="footer-bottom-link">Privacy Policy</a>
+        <a href="../terms-of-service.html" class="footer-bottom-link">Terms of Service</a>
+
       </div>
     </div>
   </div>

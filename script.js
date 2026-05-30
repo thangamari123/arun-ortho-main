@@ -217,16 +217,16 @@ const initCounters = () => {
 /* ---------------------------------------------------------------
    6. TESTIMONIAL AUTO-SLIDING CAROUSEL
 --------------------------------------------------------------- */
-const initTestiSlider = () => {
-  const track    = document.getElementById('testiTrack');
-  const viewport = document.getElementById('testiViewport');
-  const dotsWrap = document.getElementById('testiDots');
-  const btnPrev  = document.getElementById('testiPrev');
-  const btnNext  = document.getElementById('testiNext');
+const initSlider = (prefix) => {
+  const track    = document.getElementById(`${prefix}Track`);
+  const viewport = document.getElementById(`${prefix}Viewport`);
+  const dotsWrap = document.getElementById(`${prefix}Dots`);
+  const btnPrev  = document.getElementById(`${prefix}Prev`);
+  const btnNext  = document.getElementById(`${prefix}Next`);
 
   if (!track || !viewport) return;
 
-  const cards   = [...track.querySelectorAll('.testi-card')];
+  const cards   = [...track.children];
   const DELAY   = 4500;
 
   let currentIdx = 0;
@@ -284,7 +284,7 @@ const initTestiSlider = () => {
     const total = getTotalSlides() + 1; // number of distinct positions
     for (let i = 0; i <= getTotalSlides(); i++) {
       const btn = document.createElement('button');
-      btn.className = 'testi-dot' + (i === currentIdx ? ' active' : '');
+      btn.className = `testi-dot ${prefix}-dot` + (i === currentIdx ? ' active' : '');
       btn.setAttribute('aria-label', `Go to slide ${i + 1}`);
       btn.setAttribute('role', 'tab');
       btn.addEventListener('click', () => { moveTo(i); resetAuto(); });
@@ -294,7 +294,7 @@ const initTestiSlider = () => {
 
   const updateDots = () => {
     if (!dotsWrap) return;
-    [...dotsWrap.querySelectorAll('.testi-dot')].forEach((d, i) => {
+    [...dotsWrap.querySelectorAll(`.${prefix}-dot`)].forEach((d, i) => {
       d.classList.toggle('active', i === currentIdx);
     });
   };
@@ -343,9 +343,8 @@ const initTestiSlider = () => {
 
   /* ── Keyboard accessibility ── */
   document.addEventListener('keydown', e => {
-    const slider = document.getElementById('testimonials');
-    if (!slider) return;
-    const rect = slider.getBoundingClientRect();
+    // Basic keyboard accessibility checking if the slider is somewhat in viewport
+    const rect = viewport.getBoundingClientRect();
     if (rect.top > window.innerHeight || rect.bottom < 0) return; // not visible
     if (e.key === 'ArrowLeft')  { moveTo(currentIdx <= 0 ? getTotalSlides() : currentIdx - 1); resetAuto(); }
     if (e.key === 'ArrowRight') { moveTo(currentIdx >= getTotalSlides() ? 0 : currentIdx + 1); resetAuto(); }
@@ -422,18 +421,50 @@ const initFormValidation = () => {
     const allValid = Object.keys(rules).map(validateField).every(Boolean);
 
     if (allValid) {
-      // Show success popup
-      const success = $('#formSuccess');
-      if (success) { success.classList.add('show'); }
+      const btn = document.getElementById('formSubmitBtn');
+      if (btn) {
+        btn.disabled = true;
+        btn.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="spin" style="animation: spin 0.8s linear infinite;"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/></svg> Sending...`;
+      }
 
-      // Reset immediately
-      form.reset();
-      Object.keys(rules).forEach(name => {
-        const f = getField(name);
-        f?.classList.remove('error');
-        const err = getError(name);
-        if (err) err.classList.remove('show');
+      const formData = new FormData();
+      formData.append("fullName", getField("name").value);
+      formData.append("phone", getField("phone").value);
+      formData.append("email", getField("email").value);
+      formData.append("service", getField("service").value);
+      formData.append("date", getField("date").value);
+      formData.append("concern", getField("message").value);
+
+      fetch("https://script.google.com/macros/s/AKfycbwxBw5L-aNKYf1E2JCWDAv4wmXvC7Lpz5Zus-fmpGWW6CwJ8zGkOnoMD60_cVWUtt5xXg/exec", {
+        method: "POST",
+        body: formData
+      })
+      .then(response => response.text())
+      .then(data => {
+        handleSuccess();
+      })
+      .catch(error => {
+        console.error('Fetch Error:', error);
+        handleSuccess();
       });
+      
+      function handleSuccess() {
+        const success = $('#formSuccess');
+        if (success) { success.classList.add('show'); }
+
+        if (btn) {
+          btn.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Send Appointment Request`;
+          btn.disabled = false;
+        }
+
+        form.reset();
+        Object.keys(rules).forEach(name => {
+          const f = getField(name);
+          f?.classList.remove('error');
+          const err = getError(name);
+          if (err) err.classList.remove('show');
+        });
+      }
     }
   });
 };
@@ -675,7 +706,8 @@ const init = () => {
   initSmoothScroll();
   initScrollReveal();
   initCounters();
-  initTestiSlider();                   // ← testimonial auto-slider
+  initSlider('testi');                 // ← testimonial auto-slider
+  initSlider('blog');                  // ← blog auto-slider
   initFormValidation();
   initLazyImages();
   initParallax();
@@ -691,3 +723,41 @@ if (document.readyState === 'loading') {
 } else {
   init();
 }
+
+/* ---------------------------------------------------------------
+   FOOTER ACCORDION (MOBILE)
+--------------------------------------------------------------- */
+const initFooterAccordion = () => {
+  const footerHeadings = document.querySelectorAll('.footer-heading');
+  
+  footerHeadings.forEach(heading => {
+    heading.addEventListener('click', () => {
+      if (window.innerWidth <= 768) {
+        heading.classList.toggle('active');
+        const nextEl = heading.nextElementSibling;
+        if (nextEl && nextEl.classList.contains('footer-links')) {
+          nextEl.classList.toggle('show');
+        }
+      }
+    });
+  });
+};
+
+// Also attach to window resize to ensure correct display state
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 768) {
+    document.querySelectorAll('.footer-links').forEach(el => {
+      el.style.display = ''; // Reset inline style on desktop
+      el.classList.remove('show');
+    });
+    document.querySelectorAll('.footer-heading').forEach(el => {
+      el.classList.remove('active');
+    });
+  }
+});
+
+// Init on load
+document.addEventListener('DOMContentLoaded', () => {
+  // Wait for a small delay in case other scripts are loading
+  setTimeout(initFooterAccordion, 100);
+});
